@@ -5,7 +5,7 @@ import Home from "./componet/Home";
 import About from "./componet/About";
 import Assignments from "./componet/Assignments";
 import ProtectedRoute from "./componet/ProtectedRoute";
-import LoginPage from "./componet/Loginpage";
+import LoginPage from "./componet/LoginPage";
 import Sociallink from "./componet/Sociallink";
 import Game from "./componet/Game";
 import LogoutButton from "./componet/Logout";

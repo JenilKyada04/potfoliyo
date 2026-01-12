@@ -36,13 +36,10 @@ export default function SocialLinks() {
   return (
     <section className="relative min-h-screen bg-[#030712] text-white flex items-center justify-center px-6 overflow-hidden">
 
-      {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
 
-      {/* Content */}
       <div className="relative z-10 flex flex-col items-center">
 
-        {/* Heading */}
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-4
           bg-gradient-to-r from-indigo-400 to-pink-400
           bg-clip-text text-transparent">
@@ -54,7 +51,6 @@ export default function SocialLinks() {
           You can find me on these platforms.
         </p>
 
-        {/* Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
           {socials.map((social, index) => (
             <a
@@ -79,8 +75,7 @@ export default function SocialLinks() {
           ))}
         </div>
 
-        {/* Footer */}
-        <p className="mt-12 text-gray-500 text-sm">
+          <p className="mt-12 text-gray-500 text-sm">
           © {new Date().getFullYear()} Jenil Kyada
         </p>
       </div>

@@ -4,14 +4,11 @@ const Home = () => {
   return (
     <main className="bg-[#020617] text-white overflow-hidden scroll-smooth">
 
-      {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center px-6 md:px-16">
-        {/* Background Glow */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-yellow-400/10 blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT CONTENT */}
           <div className="space-y-6">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs text-indigo-300 bg-white/5">
               <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_#22c55e]" />
@@ -102,28 +99,20 @@ const Home = () => {
                   </div>
                 </div>
 
-                {/* Glow */}
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-indigo-500/30 blur-3xl rounded-full" />
               </div>
             </div>
           </Link>
         </div>
 
-
-
-
-
       </section>
 
-      {/* FOOTER */}
       <footer className="relative mt-20 border-t border-white/10  bg-[#030712]">
-        {/* Glow */}
         <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-yellow-400/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-16 py-14">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
 
-            {/* Left */}
             <div>
               <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-yellow-300 bg-clip-text text-transparent">
                 Jenil Kyada
@@ -134,7 +123,6 @@ const Home = () => {
               </p>
             </div>
 
-            {/* Center Links */}
             <div className="flex justify-center">
               <ul className="flex flex-wrap gap-6 text-sm text-gray-400">
                 <li>
@@ -160,7 +148,6 @@ const Home = () => {
               </ul>
             </div>
 
-            {/* Right */}
             <div className="text-center md:text-right">
               <p className="text-gray-400 text-sm mb-2">
                 Let’s build something great
@@ -176,7 +163,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Bottom */}
           <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-gray-500">
             © {new Date().getFullYear()} Jenil Kyada. All rights reserved.
           </div>

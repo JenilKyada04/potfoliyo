@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Sidebar: React.FC = () => {
   const [open, setOpen] = useState(false);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
     return () => {

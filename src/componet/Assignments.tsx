@@ -3,28 +3,25 @@ import { Download, FileText } from "lucide-react";
 const Assignments = () => {
   const assignments = [
     {
-      title: "JAVA Assignment",
+      title: "IOT Assignment",
       tag: "Jenil Kyada",
       description: "Learn properly after writing your Assignment.",
-      fileUrl: "/pdfs/jk.pdf",
+      fileUrl: "/pdfs/Jenil-Kyada-Iot-Assignment-1,2,3,4.pdf",
     },
   ];
 
   return (
     <section className="relative min-h-screen bg-[#030712] flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
 
-      {/* ===== BACKGROUND GLOWS ===== */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] z-[-1]" />
 
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] z-[-1]" />
 
-      {/* CENTER GLOW */}
       <div className="absolute top-1/2 left-1/2 
         -translate-x-1/2 -translate-y-1/2 
         w-[500px] h-[500px] 
         bg-blue-500/10 rounded-full blur-[120px] z-[-1]" />
 
-      {/* ===== HEADING ===== */}
       <div className="max-w-5xl w-full text-center mb-16 relative z-10">
         <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
           <span className="bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">

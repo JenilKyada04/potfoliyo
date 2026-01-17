@@ -12,7 +12,7 @@ const Assignments = () => {
       title: "Java Assignment",
       tag: "Jenil Kyada",
       description: "Learn properly after writing your assignment.",
-      fileUrl: "/pdfs/Jenil Kyada Java Assignment 1,2,3,4.pdf",
+      fileUrl: "/pdfs/Jenil-Kyada-Java-Assignment-1,2,3,4.pdf",
     },
   ];
 

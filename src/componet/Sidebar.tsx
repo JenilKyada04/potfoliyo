@@ -1,127 +1,109 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Sidebar: React.FC = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+    return () => { document.body.style.overflow = "auto"; };
   }, [open]);
+
+  const navLinks = [
+    { to: "/", label: "Home", end: true },
+    { to: "/Assignments", label: "Assignments" },
+    { to: "/about", label: "About" },
+    { to: "/Sociallink", label: "Social Links" },
+    { to: "/Game", label: "Game" },
+    { to: "/LoginPage", label: "Login" },
+  ];
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `group relative block px-5 py-3 rounded-xl transition-all duration-300 ease-out
-    ${
-      isActive
-        ? "bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-lg"
-        : "text-gray-300 hover:bg-white/10 hover:text-white"
-    }`;
+    ${isActive 
+      ? "bg-gradient-to-r from-indigo-500 to-blue-500 text-white shadow-lg shadow-indigo-500/40 scale-[1.02]" 
+      : "text-gray-400 hover:bg-white/5 hover:text-white hover:translate-x-1"}`;
 
   return (
     <>
-      {/* Mobile Toggle Button */}
       <button
-        aria-label="Open menu"
-        className="fixed top-4 left-4 z-50 md:hidden 
-        bg-gradient-to-r from-indigo-500 to-blue-500 
-        text-white p-3 rounded-xl shadow-lg
-        active:scale-95 transition"
         onClick={() => setOpen(true)}
+        className="fixed top-4 left-4 z-50 md:hidden bg-indigo-600 text-white p-3 rounded-xl shadow-lg active:scale-95 transition-transform"
       >
         ☰
       </button>
 
-      {/* Overlay */}
-      <div
-        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm
-        transition-opacity duration-300 md:hidden
-        ${open ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-        onClick={() => setOpen(false)}
-      />
+      <AnimatePresence>
+        {open && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setOpen(false)}
+              className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm md:hidden"
+            />
+            <motion.aside
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 z-50 h-full w-72 bg-[#0b1220] p-6 shadow-2xl md:hidden flex flex-col overflow-x-hidden"
+            >
+              <div className="flex items-center justify-between mb-10">
+                <h2 className="text-2xl font-bold text-white">Jenil</h2>
+                <button onClick={() => setOpen(false)} className="text-gray-400 text-2xl">✕</button>
+              </div>
+              
+              <nav className="flex flex-col space-y-2 flex-grow overflow-y-auto overflow-x-hidden no-scrollbar">
+                {navLinks.map((link, i) => (
+                  <motion.div key={link.label} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: i * 0.05 }}>
+                    <NavLink to={link.to} end={link.end} className={linkClass} onClick={() => setOpen(false)}>
+                      {link.label}
+                    </NavLink>
+                  </motion.div>
+                ))}
+              </nav>
 
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 z-50 h-full w-72
-        bg-gradient-to-b from-[#0b1220] to-[#030712]
-        p-6 shadow-2xl backdrop-blur-xl
-        transform transition-all duration-300 ease-[cubic-bezier(.4,0,.2,1)]
-        ${
-          open
-            ? "translate-x-0 opacity-100"
-            : "-translate-x-full opacity-0"
-        }
-        md:translate-x-0 md:opacity-100`}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between mb-10">
+              <div className="pt-6 border-t border-white/5">
+                <NavLink to="/logout" className="block px-5 py-3 rounded-xl bg-red-500/10 text-red-400 text-center hover:bg-red-500 hover:text-white transition-colors" onClick={() => setOpen(false)}>
+                  Logout
+                </NavLink>
+              </div>
+            </motion.aside>
+          </>
+        )}
+      </AnimatePresence>
+
+      <aside className="hidden md:flex fixed top-0 left-0 h-screen w-72 bg-[#0b1220] p-6 flex-col border-r border-white/5 z-30 overflow-x-hidden">
+        <div className="mb-10 px-2">
           <Link to="/">
-          <h2 className="text-3xl font-extrabold tracking-wide text-white">
-            Jenil
-          </h2></Link>
-
-          <button
-            aria-label="Close menu"
-            className="md:hidden text-gray-300 hover:text-white text-2xl"
-            onClick={() => setOpen(false)}
-          >
-            ✕
-          </button>
+            <h2 className="text-3xl font-extrabold text-white tracking-tight">Jenil</h2>
+          </Link>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex flex-col space-y-3">
-          {[
-            { to: "/", label: "Home", end: true },
-            { to: "/Assignments", label: "Assignments" },
-            { to: "/about", label: "About" },
-            { to: "/Sociallink", label: "Social Links" },
-            { to: "/Game", label: "Game" },
-            { to: "/LoginPage", label: "Login" },
-          ].map((link) => (
-            <NavLink
-              key={link.label}
-              to={link.to}
-              end={link.end}
-              className={linkClass}
-              onClick={() => setOpen(false)}
-            >
-              <span className="relative z-10">{link.label}</span>
-
-              {/* Hover glow */}
-              <span
-                className="absolute inset-0 rounded-xl bg-gradient-to-r 
-                from-indigo-500 to-blue-500 opacity-0 
-                group-hover:opacity-20 transition"
-              />
+        <nav className="flex flex-col space-y-2 flex-grow overflow-y-auto overflow-x-hidden no-scrollbar">
+          {navLinks.map((link) => (
+            <NavLink key={link.label} to={link.to} end={link.end} className={linkClass}>
+              {link.label}
             </NavLink>
           ))}
         </nav>
 
-        {/* Logout Button (Bottom) */}
-        <div className="absolute bottom-20 left-6 right-6">
+        <div className="mt-auto pt-6 border-t border-white/5">
           <NavLink
             to="/logout"
-            className="group relative block px-5 py-3 rounded-xl
-            bg-red-600/20 text-red-400
-            hover:bg-red-500 hover:text-white
-            transition-all duration-300"
-            onClick={() => setOpen(false)}
+            className="group flex items-center justify-center px-5 py-3 rounded-xl
+            bg-red-500/10 text-red-400 border border-red-500/10
+            hover:bg-red-500 hover:text-white transition-all duration-300"
           >
-            <span className="relative z-10">Logout</span>
-
-            <span
-              className="absolute inset-0 rounded-xl bg-red-600
-              opacity-0 group-hover:opacity-20 transition"
-            />
+            <span className="font-semibold">Logout</span>
           </NavLink>
-        </div>
-
-        {/* Footer */}
-        <div className="absolute bottom-6 left-6 right-6 text-center text-xs text-gray-400">
-          © {new Date().getFullYear()} Jenil Kyada
+          
+          <div className="mt-4 text-center text-[10px] uppercase tracking-widest text-gray-600 font-medium">
+            © {new Date().getFullYear()} Jenil Kyada
+          </div>
         </div>
       </aside>
     </>

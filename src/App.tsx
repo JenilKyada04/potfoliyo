@@ -27,7 +27,7 @@ export default function App() {
               element={
                 <ProtectedRoute>
                   <Assignments />
-                 </ProtectedRoute>
+                </ProtectedRoute>
               }
             />
             <Route path="/Game" element={<Game />} />

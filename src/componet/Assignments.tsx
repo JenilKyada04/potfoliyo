@@ -19,7 +19,7 @@ const Assignments = () => {
   return (
     <section className="relative min-h-screen bg-[#030712] flex flex-col items-center px-6 md:px-16 py-20 overflow-hidden">
 
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] z-[-1]" />
+      <div className="absolute top-0 right-0 w-125 h-125 bg-indigo-600/10 rounded-full blur-[120px] z-[-1]" />
 
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] z-[-1]" />
 

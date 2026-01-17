@@ -25,9 +25,9 @@ export default function App() {
             <Route
               path="/assignments"
               element={
-                <ProtectedRoute>
+                // <ProtectedRoute>
                   <Assignments />
-                </ProtectedRoute>
+                // </ProtectedRoute>
               }
             />
             <Route path="/Game" element={<Game />} />

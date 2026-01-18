@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import NotificationPanel from "./NotificationPanel";
+
 
 const Home = () => {
   return (
@@ -6,6 +8,10 @@ const Home = () => {
 
       <section className="relative min-h-screen flex items-center px-6 md:px-16">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-yellow-400/10 blur-3xl" />
+        {/* NOTIFICATION PANEL */}
+        <div className="fixed top-6 right-6 z-50">
+          <NotificationPanel />
+        </div>
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 

@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
         action="https://api.web3forms.com/submit"
         method="POST"
         onSubmit={handleSubmit}
-        className="relative z-10 bg-gray-900/40 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl w-[380px] shadow-2xl space-y-5"
+        className="relative z-10 bg-gray-900/40 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl w-80 shadow-2xl space-y-5"
       >
         <div className="space-y-2">
           <h2 className="text-white text-3xl font-extrabold text-center tracking-tight">

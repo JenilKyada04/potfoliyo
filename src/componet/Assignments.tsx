@@ -14,6 +14,12 @@ const Assignments = () => {
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-Java-Assignment-1,2,3,4.pdf",
     },
+    {
+      title: "WD2 Assignment",
+      tag: "Jenil Kyada",
+      description: "Learn properly after writing your assignment.",
+      fileUrl: "/pdfs/Jenil-Kyada-WD2-Assignment-1,2,3,4.pdf",
+    },
   ];
 
   return (

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <main className="bg-[#020617] text-white overflow-hidden scroll-smooth">
+    <main className="bg-[#020617] text-white overflow-hidden scroll-smooth ">
 
       <section className="relative min-h-screen flex items-center px-6 md:px-16">
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-yellow-400/10 blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
-          <div className="space-y-6">
+          <div className="space-y-6 mt-20 md:mt-0">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs text-indigo-300 bg-white/5">
               <span className="w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_#22c55e]" />
               Portfolio Home

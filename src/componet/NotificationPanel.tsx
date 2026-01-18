@@ -14,7 +14,7 @@ const NotificationPanel = () => {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-// hghg
+// hgh
     const notifications = [
         { id: 1, text: "WD2 Assignment (new)" },
         { id: 2, text: "Java Assignment (new)" },

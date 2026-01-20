@@ -1,67 +1,76 @@
 import { useEffect, useRef, useState } from "react";
-import { Bell } from "lucide-react";
+import { Bell, CheckCircle2 } from "lucide-react";
 
 const NotificationPanel = () => {
-    const [open, setOpen] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            if (ref.current && !ref.current.contains(e.target as Node)) {
-                setOpen(false);
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
-// hg
-    const notifications = [
-        { id: 1, text: "WD2 Assignment (new)" },
-        { id: 2, text: "Java Assignment (new)" },
-        { id: 3, text: "Iot Assignment" },
-    ];
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    return (
-        <div ref={ref} className="relative">
-            {/* Bell Button */}
-            <button
-                onClick={() => setOpen(!open)}
-                className="relative p-3 rounded-full bg-white/5 hover:bg-white/10 transition"
-            >
-                <Bell className="w-5 h-5 text-indigo-400" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+  const notifications = [
+    { id: 1, text: ".NET Assignment submitted" },
+    { id: 2, text: "WD2 Assignment pending" },
+    { id: 3, text: "Java Assignment reviewed" },
+    { id: 4, text: "IoT Assignment deadline tomorrow" },
+  ];
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="relative p-3 rounded-full bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all duration-300"
+      >
+        <Bell className="w-5 h-5 text-indigo-400" />
+        <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 mt-4 w-80 rounded-2xl bg-liner-to-b from-[#0b1224] to-[#050814] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] backdrop-blur-xl overflow-hidden animate-fadeIn">
+          <div className="px-4 py-3 flex items-center justify-between border-b border-white/10 bg-white/5">
+            <p className="text-sm font-semibold text-white">
+              Notifications
+            </p>
+            <button className="text-xs text-indigo-400 hover:underline">
+              Mark all read
             </button>
+          </div>
 
-            {/* Dropdown */}
-            {open && (
-                <div className="absolute right-0 mt-4 w-80 rounded-xl bg-[#0a0f1c] border border-white/10 shadow-2xl overflow-hidden animate-fadeIn">
-                    <div className="px-4 py-3 border-b border-white/10">
-                        <p className="text-sm font-semibold text-white">
-                            Notifications
-                        </p>
-                    </div>
-
-                    <ul className="max-h-72 overflow-y-auto">
-                        {notifications.map((item) => (
-                            <li
-                                key={item.id}
-                                className="px-4 py-3 text-sm text-gray-300 hover:bg-white/5 transition cursor-pointer"
-                            >
-                                <p>{item.text}</p>
-                            </li>
-                        ))}
-                    </ul>
-
-                    <div className="px-4 py-3 text-center border-t border-white/10">
-                        <button className="text-xs text-indigo-400 hover:underline">
-                            View all
-                        </button>
-                    </div>
+          <ul className="max-h-72 overflow-y-auto scrollbar-thin scrollbar-thumb-white/10">
+            {notifications.map((item) => (
+              <li
+                key={item.id}
+                className="group px-4 py-3 flex items-start gap-3 transition cursor-pointer hover:bg-white/10"
+              >
+                <div className="mt-1">
+                  <CheckCircle2 className="w-4 h-4 text-indigo-400" />
                 </div>
-            )}
-        </div>
-    );
-};
 
+                <div className="flex-1">
+                  <p className="text-sm text-gray-200 group-hover:text-white">
+                    {item.text}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div className="px-4 py-3 text-center border-t border-white/10 bg-white/5">
+            <button className="text-xs font-medium text-indigo-400 hover:text-indigo-300">
+              View all notifications →
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default NotificationPanel;

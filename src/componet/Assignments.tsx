@@ -1,13 +1,22 @@
 import { Download, FileText } from "lucide-react";
+import ProfileMenu from "./ProfileMenu";
+import NotificationPanel from "./NotificationPanel";
 
 const Assignments = () => {
   const assignments = [
-    { 
+    {
+      title: ".NET Practical Assignment",
+      tag: "Jenil Kyada",
+      description: "Learn properly after writing your assignment.",
+      fileUrl: "/pdfs/Jenil-Kyada-NET-Practical-Assignment.pdf",
+    },
+    {
       title: "JAVA Practical Assignment",
       tag: "Jenil Kyada",
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-Java-Practical-Assignment.pdf",
     },
+
     {
       title: "IOT Assignment",
       tag: "Jenil Kyada",
@@ -26,22 +35,38 @@ const Assignments = () => {
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-WD2-Assignment-1,2,3,4.pdf",
     },
-    { 
+    {
       title: ".NET Assignment",
       tag: "Jenil Kyada",
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-Net-Assignment-1,2,3,4.pdf",
     },
-    
+
   ];
 
   return (
     <section className="relative min-h-screen bg-[#030712] flex flex-col items-center px-4 sm:px-6 md:px-16 py-14 sm:py-20 overflow-hidden">
-      
+
+      <div className="
+  fixed top-6 right-6 z-50
+  flex items-center gap-4
+  rounded-full
+  bg-[#030712] backdrop-blur-md
+  
+  px-4 py-3
+  shadow-lg shadow-black/5
+  transition-all duration-300
+  hover:shadow-xl hover:bg-white
+">
+        <NotificationPanel />
+        {/* <ProfileMenu /> */}
+      </div>
+
+
       <div className="absolute top-0 right-0 w-72 h-72 sm:w-125 sm:h-125 bg-indigo-600/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 sm:w-125 sm:h-125bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-3xl w-full text-center mb-10 sm:mb-16 relative z-10">
+      <div className="max-w-3xl mt-10 md:mt-0 w-full text-center mb-10 sm:mb-16 relative z-10">
         <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-4 sm:mb-6">
           <span className="bg-linear-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">
             Assignments

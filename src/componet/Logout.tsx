@@ -1,19 +1,21 @@
-import { useEffect } from "react";
-import { logoutUser } from "../utils/auth";
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { logoutUser } from "../utils/auth"
 
-const LogoutPage = () => {
-    
-    useEffect(() => {
-        logoutUser();
+const LogoutPage: React.FC = () => {
+  const navigate = useNavigate()
 
-        window.location.replace("https://www.google.com");
-    }, []);
+  useEffect(() => {
+    logoutUser()
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-black text-white">
-            Logging you out...
-        </div>
-    );
-};
+    navigate("/LoginPage", { replace: true })
+  }, [navigate])
 
-export default LogoutPage;
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
+      Logging you out...
+    </div>
+  )
+}
+
+export default LogoutPage

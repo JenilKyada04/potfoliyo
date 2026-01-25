@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import NotificationPanel from "./NotificationPanel";
+import ProfileMenu from "./ProfileMenu";
 
 
 const Home = () => {
@@ -7,11 +8,26 @@ const Home = () => {
     <main className="bg-[#020617] text-white overflow-hidden scroll-smooth ">
 
       <section className="relative min-h-screen flex items-center px-6 md:px-16">
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-yellow-400/10 blur-3xl" />
-        {/* NOTIFICATION PANEL */}
-        <div className="fixed top-6 right-6 z-50">
-          <NotificationPanel />
-        </div>
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-indigo-500/10 via-purple-500/10 to-yellow-400/10 blur-3xl" />
+        <div
+  className="
+    fixed top-6 right-6 z-50
+    flex items-center gap-4
+    rounded-full
+     backdrop-blur-md
+    px-4 py-3
+    shadow-lg shadow-black/5
+    transition-all duration-300
+
+    md:flex
+    sidebar-open:hidden
+  "
+>
+  <NotificationPanel />
+  <ProfileMenu />
+</div>
+
+
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 
@@ -22,7 +38,7 @@ const Home = () => {
             </span>
 
             <Link to="/Sociallink">
-              <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-gray-100 via-indigo-300 to-yellow-300 bg-clip-text text-transparent hover:scale-[1.02] transition">
+              <h1 className="text-4xl md:text-6xl font-extrabold bg-linear-to-r from-gray-100 via-indigo-300 to-yellow-300 bg-clip-text text-transparent hover:scale-[1.02] transition">
                 Jenil Kyada
               </h1>
             </Link>
@@ -41,7 +57,7 @@ const Home = () => {
               <Link
                 to="/Assignments"
                 className="px-7 py-3 rounded-full font-semibold text-[#020617]
-                bg-gradient-to-r from-indigo-500 via-purple-500 to-yellow-400
+                bg-linear-to-r from-indigo-500 via-purple-500 to-yellow-400
                 hover:scale-105 hover:shadow-xl transition"
               >
                 View Work
@@ -57,15 +73,14 @@ const Home = () => {
             </div>
           </div>
 
-          {/* RIGHT CARD */}
           <Link to="/Assignments" aria-label="View assignments">
             <div className="flex justify-center md:justify-end">
               <div className="relative w-full max-w-sm rounded-2xl p-6 bg-[#0a0f1c]
                 shadow-2xl hover:scale-105 transition">
 
                 <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-full p-[2px]
-                    bg-gradient-to-tr from-indigo-500 via-purple-500 to-yellow-400">
+                  <div className="w-12 h-12 rounded-full p-0.5
+                    bg-linear-to-tr from-indigo-500 via-purple-500 to-yellow-400">
                     <div className="w-full h-full rounded-full bg-[#020617]
                       flex items-center justify-center font-bold text-lg">
                       J
@@ -114,13 +129,13 @@ const Home = () => {
       </section>
 
       <footer className="relative mt-20 border-t border-white/10  bg-[#030712]">
-        <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-yellow-400/10 blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-r from-indigo-500/10 to-yellow-400/10 blur-3xl pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-16 py-14">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
 
             <div>
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-yellow-300 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold bg-linear-to-r from-indigo-400 to-yellow-300 bg-clip-text text-transparent">
                 Jenil Kyada
               </h3>
               <p className="text-gray-400 text-sm mt-2 max-w-xs">
@@ -161,7 +176,7 @@ const Home = () => {
               <Link
                 to="/LoginPage"
                 className="inline-block px-6 py-2 rounded-full text-sm font-semibold
-          text-[#020617] bg-gradient-to-r from-indigo-500 via-purple-500 to-yellow-400
+          text-[#020617] bg-linear-to-r from-indigo-500 via-purple-500 to-yellow-400
           hover:scale-105 transition"
               >
                 Contact Me

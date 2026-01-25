@@ -1,5 +1,5 @@
 import { Download, FileText } from "lucide-react";
-import ProfileMenu from "./ProfileMenu";
+// import ProfileMenu from "./ProfileMenu";
 import NotificationPanel from "./NotificationPanel";
 
 const Assignments = () => {

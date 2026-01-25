@@ -2,6 +2,12 @@ import { Download, FileText } from "lucide-react";
 
 const Assignments = () => {
   const assignments = [
+    { 
+      title: "JAVA Practical Assignment",
+      tag: "Jenil Kyada",
+      description: "Learn properly after writing your assignment.",
+      fileUrl: "/pdfs/Jenil-Kyada-Java-Practical-Assignment.pdf",
+    },
     {
       title: "IOT Assignment",
       tag: "Jenil Kyada",
@@ -20,12 +26,13 @@ const Assignments = () => {
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-WD2-Assignment-1,2,3,4.pdf",
     },
-    {
+    { 
       title: ".NET Assignment",
       tag: "Jenil Kyada",
       description: "Learn properly after writing your assignment.",
       fileUrl: "/pdfs/Jenil-Kyada-Net-Assignment-1,2,3,4.pdf",
     },
+    
   ];
 
   return (

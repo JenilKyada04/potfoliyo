@@ -16,10 +16,11 @@ const NotificationPanel = () => {
   }, []);
 
   const notifications = [
-    { id: 1, text: ".NET Assignment submitted" },
-    { id: 2, text: "WD2 Assignment pending" },
-    { id: 3, text: "Java Assignment reviewed" },
-    { id: 4, text: "IoT Assignment deadline tomorrow" },
+    { id: 5, text: "Java Practical Assignment (new)" },
+    { id: 1, text: ".NET Assignment (new)" },
+    { id: 2, text: "WD2 Assignment (new)" },
+    { id: 3, text: "Java Assignment (new)" },
+    { id: 4, text: "IoT Assignment " },
   ];
 
   return (
